@@ -138,12 +138,13 @@ nav {
 }
 .hero-headline {
   font-family: var(--serif);
-  font-size: clamp(36px, 5vw, 60px);
+  font-size: clamp(32px, 4vw, 52px);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.25;
   letter-spacing: -0.01em;
   color: var(--gray-900);
   margin-bottom: 24px;
+  word-break: keep-all;
 }
 .hero-headline em {
   font-style: italic;
@@ -328,12 +329,13 @@ section { padding: 100px 40px; }
 }
 .section-title {
   font-family: var(--serif);
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(24px, 2.8vw, 34px);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--gray-900);
   margin-bottom: 20px;
+  word-break: keep-all;
 }
 .section-desc {
   font-size: 16px; font-weight: 300;
@@ -863,8 +865,35 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
-  nav { padding: 16px 20px; }
+  nav { padding: 14px 20px; gap: 0; }
   .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: fixed; top: 57px; left: 0; right: 0;
+    background: rgba(254,252,251,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding: 12px 0 20px;
+    z-index: 99;
+  }
+  .nav-links.open li a {
+    display: block; padding: 12px 28px;
+    font-size: 15px; color: var(--gray-800);
+  }
+  .nav-hamburger {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 36px; height: 36px; cursor: pointer;
+    background: none; border: none; padding: 4px; order: -1;
+  }
+  .nav-hamburger span {
+    display: block; width: 20px; height: 1.5px;
+    background: var(--gray-800); border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  .nav-cta { font-size: 12px; padding: 8px 14px; }
   section { padding: 72px 20px; }
   .hero { padding: 100px 20px 60px; }
   .hero-content { grid-template-columns: 1fr; gap: 48px; }
@@ -882,14 +911,18 @@ footer {
   .footer-inner { flex-direction: column; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+.nav-hamburger { display: none; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
+  <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기">
+    <span></span><span></span><span></span>
+  </button>
   <a href="#" class="nav-logo">H<span>A</span>NA</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#problems">서비스 소개</a></li>
     <li><a href="#founder">창업자 스토리</a></li>
     <li><a href="#solution">솔루션</a></li>
@@ -1435,7 +1468,19 @@ footer {
 </footer>
 
 <script>
-// Sakura dots
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
 const container = document.getElementById('sakuraDots');
 for (let i = 0; i < 18; i++) {
   const dot = document.createElement('div');
