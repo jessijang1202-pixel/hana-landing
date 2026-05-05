@@ -919,16 +919,16 @@ footer {
   position: relative;
   width: 300px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .phone-carousel {
   display: flex;
-  gap: 0;
-  overflow: hidden;
-  width: 300px;
+  width: calc(300px * 4);
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
 }
 .phone-slide {
-  min-width: 300px;
-  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  width: 300px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
