@@ -912,7 +912,31 @@ footer {
   .footer-inner { flex-direction: column; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
-.nav-hamburger { display: none; }
+.nav-lang {
+  display: flex; align-items: center; gap: 2px;
+  margin-right: 12px;
+}
+.lang-btn {
+  padding: 5px 10px;
+  font-size: 12px; font-weight: 500;
+  border-radius: 100px;
+  border: 1px solid var(--gray-200);
+  background: transparent;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--sans);
+  letter-spacing: 0.04em;
+}
+.lang-btn.active {
+  background: var(--gray-900);
+  color: white;
+  border-color: var(--gray-900);
+}
+.lang-btn:hover:not(.active) {
+  border-color: var(--gray-400);
+  color: var(--gray-900);
+}
 
 /* ─── PHONE CAROUSEL ─── */
 .phone-carousel-wrap {
@@ -1145,12 +1169,16 @@ footer {
   </button>
   <a href="#" class="nav-logo">H<span>A</span>NA</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#problems">서비스 소개</a></li>
-    <li><a href="#founder">창업자 스토리</a></li>
-    <li><a href="#solution">솔루션</a></li>
-    <li><a href="#community">커뮤니티</a></li>
+    <li><a href="#problems" data-i18n="nav_service">서비스 소개</a></li>
+    <li><a href="#founder" data-i18n="nav_founder">창업자 스토리</a></li>
+    <li><a href="#solution" data-i18n="nav_solution">솔루션</a></li>
+    <li><a href="#community" data-i18n="nav_community">커뮤니티</a></li>
   </ul>
-  <a href="#cta" class="nav-cta">출시 알림 받기</a>
+  <div class="nav-lang">
+    <button class="lang-btn active" id="btnKo" onclick="setLang('ko')">KO</button>
+    <button class="lang-btn" id="btnJa" onclick="setLang('ja')">JP</button>
+  </div>
+  <a href="#cta" class="nav-cta" data-i18n="nav_cta">출시 알림 받기</a>
 </nav>
 
 <!-- HERO -->
@@ -1159,19 +1187,19 @@ footer {
   <div class="sakura-dots" id="sakuraDots"></div>
   <div class="hero-content container">
     <div class="hero-text">
-      <div class="hero-badge">한일 관계 형성 플랫폼 · 출시 준비 중</div>
-      <h1 class="hero-headline">
+      <div class="hero-badge" data-i18n="hero_badge">한일 관계 형성 플랫폼 · 출시 준비 중</div>
+      <h1 class="hero-headline" data-i18n="hero_headline">
         언어가 달라도,<br>
         <em>마음은 전해집니다.</em>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n="hero_sub">
         HANA는 한국 남성과 일본 여성의 진정한 연결을 돕는 특화 플랫폼입니다.
         번역의 불편함, 문화의 차이, 거리의 불안 — 모두 처음부터 고려해 설계했습니다.
       </p>
-      <p class="hero-jp">言葉が違っても、気持ちは届く。</p>
+      <p class="hero-jp" data-i18n="hero_jp">言葉が違っても、気持ちは届く。</p>
       <div class="hero-ctas">
-        <a href="#cta" class="btn-primary">출시 알림 받기</a>
-        <a href="#founder" class="btn-secondary">프로젝트 소개 보기</a>
+        <a href="#cta" class="btn-primary" data-i18n="hero_cta1">출시 알림 받기</a>
+        <a href="#founder" class="btn-secondary" data-i18n="hero_cta2">프로젝트 소개 보기</a>
       </div>
     </div>
     <div class="hero-mock">
@@ -1344,42 +1372,42 @@ footer {
 <!-- PROBLEMS -->
 <section class="problems-bg" id="problems">
   <div class="container">
-    <div class="section-label fade-up">문제 정의</div>
-    <h2 class="section-title fade-up">한일 커플이 실제로 겪는<br>다섯 가지 어려움</h2>
-    <p class="section-desc fade-up">
+    <div class="section-label fade-up" data-i18n="prob_label">문제 정의</div>
+    <h2 class="section-title fade-up" data-i18n="prob_title">한일 커플이 실제로 겪는<br>다섯 가지 어려움</h2>
+    <p class="section-desc fade-up" data-i18n="prob_desc">
       이 서비스는 시장 조사보다 먼저 시작됐습니다.
       창업자 본인이 한일 연애를 하면서 직접 겪은 문제들입니다.
     </p>
     <div class="problems-grid">
       <div class="problem-card fade-up">
         <div class="problem-icon">🔤</div>
-        <div class="problem-title">번역의 피로와 흐름의 단절</div>
-        <div class="problem-desc">매 메시지마다 파파고를 열고, 복사하고, 붙여넣기를 반복하면 대화 자체가 힘들어집니다.</div>
-        <div class="problem-quote">"파이팅!"이 "戦い(싸움)"로 번역되던 순간, 상대방이 왜 당황하는지 몰랐습니다.</div>
+        <div class="problem-title" data-i18n="prob1_title">번역의 피로와 흐름의 단절</div>
+        <div class="problem-desc" data-i18n="prob1_desc">매 메시지마다 파파고를 열고, 복사하고, 붙여넣기를 반복하면 대화 자체가 힘들어집니다.</div>
+        <div class="problem-quote" data-i18n="prob1_quote">"파이팅!"이 "戦い(싸움)"로 번역되던 순간, 상대방이 왜 당황하는지 몰랐습니다.</div>
       </div>
       <div class="problem-card fade-up">
         <div class="problem-icon">💬</div>
-        <div class="problem-title">감정 표현의 오해</div>
-        <div class="problem-desc">미묘한 뉘앙스, 위로의 말, 농담은 번역기로 전달되지 않습니다. 의도와 다르게 전해지는 순간들이 쌓입니다.</div>
-        <div class="problem-quote">"오늘 힘들었어"에 "戦え!"라는 답이 돌아왔을 때의 어색함.</div>
+        <div class="problem-title" data-i18n="prob2_title">감정 표현의 오해</div>
+        <div class="problem-desc" data-i18n="prob2_desc">미묘한 뉘앙스, 위로의 말, 농담은 번역기로 전달되지 않습니다. 의도와 다르게 전해지는 순간들이 쌓입니다.</div>
+        <div class="problem-quote" data-i18n="prob2_quote">"오늘 힘들었어"에 "戦え!"라는 답이 돌아왔을 때의 어색함.</div>
       </div>
       <div class="problem-card fade-up">
         <div class="problem-icon">🎌</div>
-        <div class="problem-title">문화와 방식의 차이</div>
-        <div class="problem-desc">일본 여성이 선호하는 대화 방식과 한국 남성의 연애 접근법 사이의 간극. 서로 다른 언어만큼 다른 문화.</div>
-        <div class="problem-quote">빠른 친밀도를 원하는 쪽과, 신중하고 차분한 관계를 선호하는 쪽.</div>
+        <div class="problem-title" data-i18n="prob3_title">문화와 방식의 차이</div>
+        <div class="problem-desc" data-i18n="prob3_desc">일본 여성이 선호하는 대화 방식과 한국 남성의 연애 접근법 사이의 간극. 서로 다른 언어만큼 다른 문화.</div>
+        <div class="problem-quote" data-i18n="prob3_quote">빠른 친밀도를 원하는 쪽과, 신중하고 차분한 관계를 선호하는 쪽.</div>
       </div>
       <div class="problem-card fade-up">
         <div class="problem-icon">✈️</div>
-        <div class="problem-title">물리적 거리와 만남 조율</div>
-        <div class="problem-desc">상대가 언제 한국에 오는지, 여행 계획이 있는지, 장기적으로 이동 가능성이 있는지 — 알기 어렵습니다.</div>
-        <div class="problem-quote">3개월간 온라인으로만 이야기하다, 상대의 서울 여행 계획을 뒤늦게 알았습니다.</div>
+        <div class="problem-title" data-i18n="prob4_title">물리적 거리와 만남 조율</div>
+        <div class="problem-desc" data-i18n="prob4_desc">상대가 언제 한국에 오는지, 여행 계획이 있는지, 장기적으로 이동 가능성이 있는지 — 알기 어렵습니다.</div>
+        <div class="problem-quote" data-i18n="prob4_quote">3개월간 온라인으로만 이야기하다, 상대의 서울 여행 계획을 뒤늦게 알았습니다.</div>
       </div>
       <div class="problem-card fade-up">
         <div class="problem-icon">🔒</div>
-        <div class="problem-title">신뢰와 진정성의 확인</div>
-        <div class="problem-desc">언어 장벽 때문에 허위 프로필과 진짜를 구분하기 더 어렵습니다. 국경을 넘는 관계에서 안전은 더 중요합니다.</div>
-        <div class="problem-quote">상대가 진지한지, 동시에 여러 사람과 대화하는지 — 확인할 방법이 없었습니다.</div>
+        <div class="problem-title" data-i18n="prob5_title">신뢰와 진정성의 확인</div>
+        <div class="problem-desc" data-i18n="prob5_desc">언어 장벽 때문에 허위 프로필과 진짜를 구분하기 더 어렵습니다. 국경을 넘는 관계에서 안전은 더 중요합니다.</div>
+        <div class="problem-quote" data-i18n="prob5_quote">상대가 진지한지, 동시에 여러 사람과 대화하는지 — 확인할 방법이 없었습니다.</div>
       </div>
     </div>
   </div>
@@ -1426,20 +1454,20 @@ footer {
       </div>
       <div class="founder-text fade-up">
         <div class="section-label">창업자 스토리</div>
-        <h2 class="section-title">이 서비스는 시장 분석이 아니라,<br>실제 경험에서 시작됐습니다.</h2>
-        <p class="founder-story">
+        <h2 class="section-title" data-i18n="founder_title">이 서비스는 시장 분석이 아니라,<br>실제 경험에서 시작됐습니다.</h2>
+        <p class="founder-story" data-i18n="founder_story1">
           한국 남성으로서 일본인 파트너와 연애를 시작했을 때, 문제는 생각보다 훨씬 구체적이었습니다.
           번역 앱을 열고 닫는 반복, 감정이 틀리게 전달되던 순간들, 언제 만날 수 있을지 모르는 불확실함.
         </p>
-        <p class="founder-story">
+        <p class="founder-story" data-i18n="founder_story2">
           이 불편함을 개인적으로 해결하면서 깨달았습니다. 이건 우리만의 문제가 아니라,
           한일 관계를 원하는 모든 사람이 혼자 감당하고 있는 문제라는 것을.
         </p>
-        <p class="founder-story">
+        <p class="founder-story" data-i18n="founder_story3">
           그래서 직접 만들기로 했습니다. 기획도, 개발도, 검증도 — 모두 제가 합니다.
           실제 한일 커플이 필요로 하는 것을 아는 사람이 만드는 서비스입니다.
         </p>
-        <div class="founder-highlight">
+        <div class="founder-highlight" data-i18n="founder_highlight">
           "나는 이 서비스의 가장 중요한 첫 번째 사용자입니다.<br>
           내가 필요했던 것을, 이제 모두를 위해 만들고 있습니다."
         </div>
@@ -1451,39 +1479,39 @@ footer {
 <!-- SOLUTION -->
 <section id="solution">
   <div class="container">
-    <div class="section-label fade-up">HANA 솔루션</div>
-    <h2 class="section-title fade-up">다섯 가지 문제를,<br>다섯 가지 방식으로 해결합니다.</h2>
-    <p class="section-desc fade-up">단순한 매칭 앱이 아닙니다. 한일 관계의 처음부터 지속까지 함께하는 구조입니다.</p>
+    <div class="section-label fade-up" data-i18n="sol_label">HANA 솔루션</div>
+    <h2 class="section-title fade-up" data-i18n="sol_title">다섯 가지 문제를,<br>다섯 가지 방식으로 해결합니다.</h2>
+    <p class="section-desc fade-up" data-i18n="sol_desc">단순한 매칭 앱이 아닙니다. 한일 관계의 처음부터 지속까지 함께하는 구조입니다.</p>
     <div class="solution-grid">
       <div class="solution-card fade-up">
         <div class="solution-number">01</div>
-        <div class="solution-title">맥락 기반 실시간 번역</div>
-        <div class="solution-desc">단순 텍스트 변환이 아닙니다. 감정의 톤, 대화 맥락, 문화적 뉘앙스를 이해하는 번역. "파이팅"은 "頑張って"로 자연스럽게.</div>
+        <div class="solution-title" data-i18n="sol1_title">맥락 기반 실시간 번역</div>
+        <div class="solution-desc" data-i18n="sol1_desc">단순 텍스트 변환이 아닙니다. 감정의 톤, 대화 맥락, 문화적 뉘앙스를 이해하는 번역. "파이팅"은 "頑張って"로 자연스럽게.</div>
         <span class="solution-tag">Google Translate + DeepL 하이브리드</span>
       </div>
       <div class="solution-card fade-up">
         <div class="solution-number">02</div>
-        <div class="solution-title">문화·취향 기반 매칭</div>
-        <div class="solution-desc">K-pop, 드라마, 한국 카페 문화 — 공통 화제가 될 수 있는 취향을 매칭의 핵심 기준으로 사용합니다.</div>
+        <div class="solution-title" data-i18n="sol2_title">문화·취향 기반 매칭</div>
+        <div class="solution-desc" data-i18n="sol2_desc">K-pop, 드라마, 한국 카페 문화 — 공통 화제가 될 수 있는 취향을 매칭의 핵심 기준으로 사용합니다.</div>
         <span class="solution-tag">AI 임베딩 매칭</span>
       </div>
       <div class="solution-card fade-up">
         <div class="solution-number">03</div>
-        <div class="solution-title">여행자 모드 & 거리 매칭</div>
-        <div class="solution-desc">공항 반경 5km 진입 시 자동 활성화. "이번 주 서울" 상태인 일본 여성과 서울 거주 한국 남성을 우선 연결합니다.</div>
+        <div class="solution-title" data-i18n="sol3_title">여행자 모드 & 거리 매칭</div>
+        <div class="solution-desc" data-i18n="sol3_desc">공항 반경 5km 진입 시 자동 활성화. "이번 주 서울" 상태인 일본 여성과 서울 거주 한국 남성을 우선 연결합니다.</div>
         <span class="solution-tag">GPS 기반 실시간 매칭</span>
       </div>
       <div class="solution-card fade-up">
         <div class="solution-number">04</div>
-        <div class="solution-title">3단계 신뢰 인증</div>
-        <div class="solution-desc">이메일 인증 → 셀카 대조 인증 → 여권·재류카드 국적 자동 추출. 진짜 사람과, 진짜로 연결됩니다.</div>
+        <div class="solution-title" data-i18n="sol4_title">3단계 신뢰 인증</div>
+        <div class="solution-desc" data-i18n="sol4_desc">이메일 인증 → 셀카 대조 인증 → 여권·재류카드 국적 자동 추출. 진짜 사람과, 진짜로 연결됩니다.</div>
         <span class="solution-tag">AWS Rekognition · OCR</span>
       </div>
       <div class="solution-card fade-up">
         <div class="solution-number">05</div>
-        <div class="solution-title">72시간 타임캡슐 채팅</div>
-        <div class="solution-desc">무제한 대화방이 오히려 피로를 만듭니다. 72시간 안에 진심으로 대화하고, 서로 동의하면 연장하는 구조입니다.</div>
-        <span class="solution-tag">집중적 관계 형성</span>
+        <div class="solution-title" data-i18n="sol5_title">72시간 타임캡슐 채팅</div>
+        <div class="solution-desc" data-i18n="sol5_desc">무제한 대화방이 오히려 피로를 만듭니다. 72시간 안에 진심으로 대화하고, 서로 동의하면 연장하는 구조입니다.</div>
+        <span class="solution-tag" data-i18n="sol5_tag">집중적 관계 형성</span>
       </div>
     </div>
   </div>
@@ -1492,8 +1520,8 @@ footer {
 <!-- COMPARE -->
 <section class="compare-bg" id="compare">
   <div class="container">
-    <div class="section-label fade-up">차별화</div>
-    <h2 class="section-title fade-up">기존 앱이 하지 못하는 것을,<br>HANA가 처음부터 설계했습니다.</h2>
+    <div class="section-label fade-up" data-i18n="cmp_label">차별화</div>
+    <h2 class="section-title fade-up" data-i18n="cmp_title">기존 앱이 하지 못하는 것을,<br>HANA가 처음부터 설계했습니다.</h2>
     <div class="compare-table-wrap fade-up">
       <table class="compare-table">
         <thead>
@@ -1501,55 +1529,55 @@ footer {
             <th></th>
             <th>Tinder</th>
             <th>Pairs</th>
-            <th>위피</th>
+            <th data-i18n="cmp_wipi">위피</th>
             <th class="col-hana">
               <span class="col-hana-label">HANA</span>
-              <span class="col-hana-badge">특화</span>
+              <span class="col-hana-badge" data-i18n="cmp_badge">특화</span>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>실시간 맥락 번역</td>
+            <td data-i18n="cmp_row1">실시간 맥락 번역</td>
             <td><span class="check-no">✗</span></td>
             <td><span class="check-no">✗</span></td>
-            <td><span class="check-partial">△ 기본</span></td>
-            <td class="col-hana"><span class="check-yes">✓ 감정 인식</span></td>
+            <td><span class="check-partial" data-i18n="cmp_basic">△ 기본</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row1_hana">✓ 감정 인식</span></td>
           </tr>
           <tr>
-            <td>한일 문화 취향 매칭</td>
+            <td data-i18n="cmp_row2">한일 문화 취향 매칭</td>
             <td><span class="check-no">✗</span></td>
-            <td><span class="check-partial">△ 일반</span></td>
+            <td><span class="check-partial" data-i18n="cmp_general">△ 일반</span></td>
             <td><span class="check-no">✗</span></td>
-            <td class="col-hana"><span class="check-yes">✓ K-pop · 드라마 임베딩</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row2_hana">✓ K-pop · 드라마 임베딩</span></td>
           </tr>
           <tr>
-            <td>여행 일정 · GPS 매칭</td>
+            <td data-i18n="cmp_row3">여행 일정 · GPS 매칭</td>
             <td><span class="check-no">✗</span></td>
             <td><span class="check-no">✗</span></td>
-            <td><span class="check-partial">△ 텍스트만</span></td>
-            <td class="col-hana"><span class="check-yes">✓ 공항 자동 감지</span></td>
+            <td><span class="check-partial" data-i18n="cmp_text">△ 텍스트만</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row3_hana">✓ 공항 자동 감지</span></td>
           </tr>
           <tr>
-            <td>국적 · 신원 인증</td>
-            <td><span class="check-partial">△ 사진만</span></td>
-            <td><span class="check-partial">△ 본인인증</span></td>
+            <td data-i18n="cmp_row4">국적 · 신원 인증</td>
+            <td><span class="check-partial" data-i18n="cmp_photo">△ 사진만</span></td>
+            <td><span class="check-partial" data-i18n="cmp_id">△ 본인인증</span></td>
             <td><span class="check-no">✗</span></td>
-            <td class="col-hana"><span class="check-yes">✓ 여권 OCR + 셀카 대조</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row4_hana">✓ 여권 OCR + 셀카 대조</span></td>
           </tr>
           <tr>
-            <td>한일 특화 설계</td>
+            <td data-i18n="cmp_row5">한일 특화 설계</td>
             <td><span class="check-no">✗</span></td>
             <td><span class="check-no">✗</span></td>
-            <td><span class="check-partial">△ 부가 기능</span></td>
-            <td class="col-hana"><span class="check-yes">✓ 전체 구조 최적화</span></td>
+            <td><span class="check-partial" data-i18n="cmp_extra">△ 부가 기능</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row5_hana">✓ 전체 구조 최적화</span></td>
           </tr>
           <tr>
-            <td>감정 분석 AI</td>
+            <td data-i18n="cmp_row6">감정 분석 AI</td>
             <td><span class="check-no">✗</span></td>
             <td><span class="check-no">✗</span></td>
             <td><span class="check-no">✗</span></td>
-            <td class="col-hana"><span class="check-yes">✓ BERT 한일 특화</span></td>
+            <td class="col-hana"><span class="check-yes" data-i18n="cmp_row6_hana">✓ BERT 한일 특화</span></td>
           </tr>
         </tbody>
       </table>
@@ -1562,27 +1590,27 @@ footer {
   <div class="container">
     <div class="exec-inner">
       <div class="fade-up">
-        <div class="section-label">실행력</div>
-        <h2 class="section-title">기획, 개발, 검증 —<br>모두 한 사람이 합니다.</h2>
-        <p class="section-desc">외주에 의존하는 스타트업이 아닙니다. 창업자가 직접 만들고, 직접 테스트하고, 직접 개선합니다.</p>
-        <div class="exec-quote">
+        <div class="section-label" data-i18n="exec_label">실행력</div>
+        <h2 class="section-title" data-i18n="exec_title">기획, 개발, 검증 —<br>모두 한 사람이 합니다.</h2>
+        <p class="section-desc" data-i18n="exec_desc">외주에 의존하는 스타트업이 아닙니다. 창업자가 직접 만들고, 직접 테스트하고, 직접 개선합니다.</p>
+        <div class="exec-quote" data-i18n="exec_quote">
           "Founder as Developer.<br>빠르게 만들고, 빠르게 배우고,<br>빠르게 고칩니다."
         </div>
         <div class="exec-stack">
           <div class="exec-stack-item">
-            <div class="exec-stack-label">플랫폼</div>
+            <div class="exec-stack-label" data-i18n="exec_s1_label">플랫폼</div>
             <div class="exec-stack-value">Bubble No-code</div>
           </div>
           <div class="exec-stack-item">
-            <div class="exec-stack-label">MVP 개발기간</div>
-            <div class="exec-stack-value">25일 목표</div>
+            <div class="exec-stack-label" data-i18n="exec_s2_label">MVP 개발기간</div>
+            <div class="exec-stack-value" data-i18n="exec_s2_val">25일 목표</div>
           </div>
           <div class="exec-stack-item">
-            <div class="exec-stack-label">번역 엔진</div>
+            <div class="exec-stack-label" data-i18n="exec_s3_label">번역 엔진</div>
             <div class="exec-stack-value">Google + DeepL</div>
           </div>
           <div class="exec-stack-item">
-            <div class="exec-stack-label">인증 기술</div>
+            <div class="exec-stack-label" data-i18n="exec_s4_label">인증 기술</div>
             <div class="exec-stack-value">AWS Rekognition</div>
           </div>
         </div>
@@ -1591,33 +1619,33 @@ footer {
         <div class="exec-phase">
           <div class="exec-phase-num">1</div>
           <div>
-            <div class="exec-phase-title">MVP 검증 (1–3개월)</div>
-            <div class="exec-phase-desc">실시간 번역 채팅, 기본 매칭, 72시간 타임캡슐. Bubble 기반 웹앱 출시.</div>
-            <span class="exec-phase-tag">가입자 500명 · 매칭률 30%</span>
+            <div class="exec-phase-title" data-i18n="phase1_title">MVP 검증 (1–3개월)</div>
+            <div class="exec-phase-desc" data-i18n="phase1_desc">실시간 번역 채팅, 기본 매칭, 72시간 타임캡슐. Bubble 기반 웹앱 출시.</div>
+            <span class="exec-phase-tag" data-i18n="phase1_tag">가입자 500명 · 매칭률 30%</span>
           </div>
         </div>
         <div class="exec-phase">
           <div class="exec-phase-num">2</div>
           <div>
-            <div class="exec-phase-title">AI 고도화 (4–6개월)</div>
-            <div class="exec-phase-desc">BERT 감정 분석 도입, K-pop·드라마 취향 벡터화, 셀카 인증 적용.</div>
-            <span class="exec-phase-tag">매칭 만족도 70%+</span>
+            <div class="exec-phase-title" data-i18n="phase2_title">AI 고도화 (4–6개월)</div>
+            <div class="exec-phase-desc" data-i18n="phase2_desc">BERT 감정 분석 도입, K-pop·드라마 취향 벡터화, 셀카 인증 적용.</div>
+            <span class="exec-phase-tag" data-i18n="phase2_tag">매칭 만족도 70%+</span>
           </div>
         </div>
         <div class="exec-phase">
           <div class="exec-phase-num">3</div>
           <div>
-            <div class="exec-phase-title">위치 기반 매칭 (7–9개월)</div>
-            <div class="exec-phase-desc">GPS 여행자 모드, 공항 자동 감지, Google Calendar 여행 일정 연동.</div>
-            <span class="exec-phase-tag">오프라인 만남 20%+</span>
+            <div class="exec-phase-title" data-i18n="phase3_title">위치 기반 매칭 (7–9개월)</div>
+            <div class="exec-phase-desc" data-i18n="phase3_desc">GPS 여행자 모드, 공항 자동 감지, Google Calendar 여행 일정 연동.</div>
+            <span class="exec-phase-tag" data-i18n="phase3_tag">오프라인 만남 20%+</span>
           </div>
         </div>
         <div class="exec-phase">
           <div class="exec-phase-num">4</div>
           <div>
-            <div class="exec-phase-title">수익화 & 네이티브 앱 (13–18개월)</div>
-            <div class="exec-phase-desc">프리미엄 구독 출시, iOS/Android 네이티브 앱, 목표 월 매출 5,000만 원.</div>
-            <span class="exec-phase-tag">유료 전환율 15%+</span>
+            <div class="exec-phase-title" data-i18n="phase4_title">수익화 & 네이티브 앱 (13–18개월)</div>
+            <div class="exec-phase-desc" data-i18n="phase4_desc">프리미엄 구독 출시, iOS/Android 네이티브 앱, 목표 월 매출 5,000만 원.</div>
+            <span class="exec-phase-tag" data-i18n="phase4_tag">유료 전환율 15%+</span>
           </div>
         </div>
       </div>
@@ -1628,13 +1656,13 @@ footer {
 <!-- COMMUNITY -->
 <section class="community-bg" id="community">
   <div class="container">
-    <div class="section-label fade-up">사전 커뮤니티</div>
-    <h2 class="section-title fade-up">앱 출시 전부터,<br>이미 고객과 대화를 시작했습니다.</h2>
-    <p class="section-desc fade-up">
+    <div class="section-label fade-up" data-i18n="comm_label">사전 커뮤니티</div>
+    <h2 class="section-title fade-up" data-i18n="comm_title">앱 출시 전부터,<br>이미 고객과 대화를 시작했습니다.</h2>
+    <p class="section-desc fade-up" data-i18n="comm_desc">
       서비스를 만들기 전에 먼저 사람들과 연결됩니다. 한일 연애에 관심 있는 분들과 함께, 지금 이 순간도 대화 중입니다.
     </p>
     <div class="channels-row fade-up">
-      <div class="channel-chip"><span class="channel-icon">📝</span> 블로그</div>
+      <div class="channel-chip"><span class="channel-icon">📝</span> <span data-i18n="ch_blog">블로그</span></div>
       <div class="channel-chip"><span class="channel-icon">🧵</span> Threads</div>
       <div class="channel-chip"><span class="channel-icon">✕</span> X (Twitter)</div>
       <div class="channel-chip"><span class="channel-icon">📷</span> Instagram</div>
@@ -1643,18 +1671,18 @@ footer {
     <div class="community-desc">
       <div class="community-point fade-up">
         <div class="community-point-icon">🌱</div>
-        <div class="community-point-title">초기 관심층 선점</div>
-        <div class="community-point-desc">한일 연애 콘텐츠를 운영하며 서비스 출시 전부터 잠재 사용자와 관계를 형성하고 있습니다.</div>
+        <div class="community-point-title" data-i18n="comm1_title">초기 관심층 선점</div>
+        <div class="community-point-desc" data-i18n="comm1_desc">한일 연애 콘텐츠를 운영하며 서비스 출시 전부터 잠재 사용자와 관계를 형성하고 있습니다.</div>
       </div>
       <div class="community-point fade-up">
         <div class="community-point-icon">💡</div>
-        <div class="community-point-title">실사용자 피드백</div>
-        <div class="community-point-desc">실제 한일 커플, 한국어·일본어 학습자, K-팬의 목소리를 서비스에 직접 반영합니다.</div>
+        <div class="community-point-title" data-i18n="comm2_title">실사용자 피드백</div>
+        <div class="community-point-desc" data-i18n="comm2_desc">실제 한일 커플, 한국어·일본어 학습자, K-팬의 목소리를 서비스에 직접 반영합니다.</div>
       </div>
       <div class="community-point fade-up">
         <div class="community-point-icon">🤝</div>
-        <div class="community-point-title">베타 커뮤니티 형성</div>
-        <div class="community-point-desc">출시와 동시에 초기 사용자와 함께 시작할 수 있도록, 지금부터 관계를 쌓아가고 있습니다.</div>
+        <div class="community-point-title" data-i18n="comm3_title">베타 커뮤니티 형성</div>
+        <div class="community-point-desc" data-i18n="comm3_desc">출시와 동시에 초기 사용자와 함께 시작할 수 있도록, 지금부터 관계를 쌓아가고 있습니다.</div>
       </div>
     </div>
   </div>
@@ -1665,80 +1693,80 @@ footer {
   <div class="container">
     <div class="safety-inner">
       <div>
-        <div class="section-label fade-up">안전 설계</div>
-        <h2 class="section-title fade-up">안전은 부가 기능이 아닙니다.<br>서비스의 기본값입니다.</h2>
+        <div class="section-label fade-up" data-i18n="safe_label">안전 설계</div>
+        <h2 class="section-title fade-up" data-i18n="safe_title">안전은 부가 기능이 아닙니다.<br>서비스의 기본값입니다.</h2>
         <div class="safety-cards">
           <div class="safety-card fade-up">
             <div class="safety-card-icon">🪪</div>
             <div>
-              <div class="safety-card-title">여권 OCR 국적 인증</div>
-              <div class="safety-card-desc">여권·재류카드 스캔으로 국적을 자동 추출합니다. 한국인·일본인임을 시스템이 직접 확인합니다.</div>
+              <div class="safety-card-title" data-i18n="safe1_title">여권 OCR 국적 인증</div>
+              <div class="safety-card-desc" data-i18n="safe1_desc">여권·재류카드 스캔으로 국적을 자동 추출합니다. 한국인·일본인임을 시스템이 직접 확인합니다.</div>
             </div>
           </div>
           <div class="safety-card fade-up">
             <div class="safety-card-icon">🤳</div>
             <div>
-              <div class="safety-card-title">셀카 대조 인증</div>
-              <div class="safety-card-desc">AWS Rekognition으로 프로필 사진과 실시간 셀카를 90% 이상 일치도로 대조합니다. 허위 프로필은 처음부터 차단됩니다.</div>
+              <div class="safety-card-title" data-i18n="safe2_title">셀카 대조 인증</div>
+              <div class="safety-card-desc" data-i18n="safe2_desc">AWS Rekognition으로 프로필 사진과 실시간 셀카를 90% 이상 일치도로 대조합니다. 허위 프로필은 처음부터 차단됩니다.</div>
             </div>
           </div>
           <div class="safety-card fade-up">
             <div class="safety-card-icon">🚨</div>
             <div>
-              <div class="safety-card-title">행동 패턴 이상 감지</div>
-              <div class="safety-card-desc">24시간 내 비정상적인 매칭 패턴을 자동 감지합니다. 스팸·헌팅 목적의 사용을 구조적으로 방지합니다.</div>
+              <div class="safety-card-title" data-i18n="safe3_title">행동 패턴 이상 감지</div>
+              <div class="safety-card-desc" data-i18n="safe3_desc">24시간 내 비정상적인 매칭 패턴을 자동 감지합니다. 스팸·헌팅 목적의 사용을 구조적으로 방지합니다.</div>
             </div>
           </div>
           <div class="safety-card fade-up">
             <div class="safety-card-icon">🛡️</div>
             <div>
-              <div class="safety-card-title">신고 및 블랙리스트</div>
-              <div class="safety-card-desc">불쾌한 경험은 즉시 신고 가능하며, 익명화된 블랙리스트 네트워크로 다른 사용자를 보호합니다.</div>
+              <div class="safety-card-title" data-i18n="safe4_title">신고 및 블랙리스트</div>
+              <div class="safety-card-desc" data-i18n="safe4_desc">불쾌한 경험은 즉시 신고 가능하며, 익명화된 블랙리스트 네트워크로 다른 사용자를 보호합니다.</div>
             </div>
           </div>
         </div>
-        <div class="safety-principle fade-up">
+        <div class="safety-principle fade-up" data-i18n="safe_principle">
           "일본 여성이 한국 남성과 연결되기 위해 용기를 낸다면,<br>
           그 용기를 지키는 것이 우리의 책임입니다."
         </div>
       </div>
       <div class="safety-visual fade-up">
         <div class="safety-score-card">
-          <div class="safety-score-title">HANA 신뢰 지수</div>
+          <div class="safety-score-title" data-i18n="safe_score_title">HANA 신뢰 지수</div>
           <div class="safety-score-item">
-            <div class="safety-score-label">신원 인증률</div>
+            <div class="safety-score-label" data-i18n="safe_sc1">신원 인증률</div>
             <div class="safety-score-bar-wrap"><div class="safety-score-bar" style="width:90%"></div></div>
             <div class="safety-score-pct">90%</div>
           </div>
           <div class="safety-score-item">
-            <div class="safety-score-label">셀카 인식 정확도</div>
+            <div class="safety-score-label" data-i18n="safe_sc2">셀카 인식 정확도</div>
             <div class="safety-score-bar-wrap"><div class="safety-score-bar" style="width:92%"></div></div>
             <div class="safety-score-pct">92%</div>
           </div>
           <div class="safety-score-item">
-            <div class="safety-score-label">번역 품질 목표</div>
+            <div class="safety-score-label" data-i18n="safe_sc3">번역 품질 목표</div>
             <div class="safety-score-bar-wrap"><div class="safety-score-bar" style="width:85%"></div></div>
             <div class="safety-score-pct">4.0/5.0</div>
           </div>
           <div class="safety-score-item">
-            <div class="safety-score-label">매칭 만족도 목표</div>
+            <div class="safety-score-label" data-i18n="safe_sc4">매칭 만족도 목표</div>
             <div class="safety-score-bar-wrap"><div class="safety-score-bar" style="width:70%"></div></div>
             <div class="safety-score-pct">70%+</div>
           </div>
           <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:11px;color:var(--gray-400);margin-bottom:12px;letter-spacing:0.04em;text-transform:uppercase;">인증 단계</div>
+            <div style="font-size:11px;color:var(--gray-400);margin-bottom:12px;letter-spacing:0.04em;text-transform:uppercase;" data-i18n="safe_steps_label">인증 단계</div>
             <div style="display:flex;flex-direction:column;gap:8px;">
               <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-700);">
                 <span style="width:20px;height:20px;border-radius:50%;background:var(--pink-100);color:var(--pink-400);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">1</span>
-                이메일 / 전화번호 인증
+                <span data-i18n="safe_step1">이메일 / 전화번호 인증</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-700);">
                 <span style="width:20px;height:20px;border-radius:50%;background:var(--pink-100);color:var(--pink-400);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">2</span>
-                실시간 셀카 대조 인증
+                <span data-i18n="safe_step2">실시간 셀카 대조 인증</span>
               </div>
               <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-700);">
                 <span style="width:20px;height:20px;border-radius:50%;background:var(--pink-100);color:var(--pink-400);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;">3</span>
-                여권 OCR 국적 확인
+                <span data-i18n="safe_step3">여권 OCR 국적 확인</span>
               </div>
             </div>
           </div>
@@ -1753,22 +1781,22 @@ footer {
   <div class="cta-bg"></div>
   <div class="container">
     <div class="cta-inner fade-up">
-      <div class="section-label">함께 시작해요</div>
-      <h2 class="section-title">HANA와 함께<br>첫 번째 연결을 기다려주세요.</h2>
-      <p class="cta-desc">
+      <div class="section-label" data-i18n="cta_label">함께 시작해요</div>
+      <h2 class="section-title" data-i18n="cta_title">HANA와 함께<br>첫 번째 연결을 기다려주세요.</h2>
+      <p class="cta-desc" data-i18n="cta_desc">
         MVP 출시 준비 중입니다. 먼저 이메일을 남겨주시면, 출시 소식과 베타 테스트 초대를 가장 먼저 전달드립니다.
       </p>
       <div class="cta-form-row">
-        <input class="cta-input" type="email" placeholder="이메일 주소를 입력하세요">
-        <button class="cta-submit">출시 알림 받기</button>
+        <input class="cta-input" type="email" id="ctaInput" placeholder="이메일 주소를 입력하세요" data-i18n-placeholder="cta_placeholder">
+        <button class="cta-submit" data-i18n="cta_submit">출시 알림 받기</button>
       </div>
       <div class="cta-options">
-        <a href="#" class="cta-option-chip">🧪 베타테스터 신청</a>
-        <a href="#" class="cta-option-chip">🤝 협업·제휴 문의</a>
-        <a href="#" class="cta-option-chip">📊 투자자·지원사업</a>
-        <a href="#" class="cta-option-chip">🌸 일본어 페이지</a>
+        <a href="#" class="cta-option-chip" data-i18n="cta_opt1">🧪 베타테스터 신청</a>
+        <a href="#" class="cta-option-chip" data-i18n="cta_opt2">🤝 협업·제휴 문의</a>
+        <a href="#" class="cta-option-chip" data-i18n="cta_opt3">📊 투자자·지원사업</a>
+        <a href="#" class="cta-option-chip" data-i18n="cta_opt4">🌸 일본어 페이지</a>
       </div>
-      <p class="cta-note">스팸 메일은 보내지 않습니다. 언제든지 수신 거부하실 수 있습니다.</p>
+      <p class="cta-note" data-i18n="cta_note">스팸 메일은 보내지 않습니다. 언제든지 수신 거부하실 수 있습니다.</p>
     </div>
   </div>
 </section>
@@ -1782,9 +1810,9 @@ footer {
       <div style="margin-top:12px;font-size:12px;color:rgba(255,255,255,0.25);">숨결 온스튜디오<br>문의: hello@hana-app.com</div>
     </div>
     <div>
-      <div style="font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-bottom:16px;text-transform:uppercase;">채널</div>
+      <div style="font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-bottom:16px;text-transform:uppercase;" data-i18n="footer_ch">채널</div>
       <div class="footer-links">
-        <a href="#">블로그</a>
+        <a href="#" data-i18n="ch_blog">블로그</a>
         <a href="#">Threads</a>
         <a href="#">X (Twitter)</a>
         <a href="#">Instagram</a>
@@ -1792,22 +1820,157 @@ footer {
       </div>
     </div>
     <div>
-      <div style="font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-bottom:16px;text-transform:uppercase;">정보</div>
+      <div style="font-size:11px;letter-spacing:0.08em;color:rgba(255,255,255,0.3);margin-bottom:16px;text-transform:uppercase;" data-i18n="footer_info">정보</div>
       <div class="footer-links">
-        <a href="#">서비스 소개</a>
-        <a href="#">개인정보처리방침</a>
-        <a href="#">이용약관</a>
-        <a href="#">파트너 문의</a>
+        <a href="#" data-i18n="footer_about">서비스 소개</a>
+        <a href="#" data-i18n="footer_privacy">개인정보처리방침</a>
+        <a href="#" data-i18n="footer_terms">이용약관</a>
+        <a href="#" data-i18n="footer_partner">파트너 문의</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     <div style="font-size:12px;color:rgba(255,255,255,0.2);">© 2026 HANA · 숨결 온스튜디오</div>
-    <div class="footer-built">花 — 서로 다른 두 사람이 하나로 연결되는 순간.</div>
+    <div class="footer-built" data-i18n="footer_built">花 — 서로 다른 두 사람이 하나로 연결되는 순간.</div>
   </div>
 </footer>
 
 <script>
+// ── i18n 번역 데이터 ──
+const i18n = {
+  ko: {
+    nav_service:'서비스 소개', nav_founder:'창업자 스토리', nav_solution:'솔루션', nav_community:'커뮤니티', nav_cta:'출시 알림 받기',
+    hero_badge:'한일 관계 형성 플랫폼 · 출시 준비 중',
+    hero_headline:'언어가 달라도,<br><em>마음은 전해집니다.</em>',
+    hero_sub:'HANA는 한국 남성과 일본 여성의 진정한 연결을 돕는 특화 플랫폼입니다. 번역의 불편함, 문화의 차이, 거리의 불안 — 모두 처음부터 고려해 설계했습니다.',
+    hero_jp:'言葉が違っても、気持ちは届く。',
+    hero_cta1:'출시 알림 받기', hero_cta2:'프로젝트 소개 보기',
+    prob_label:'문제 정의', prob_title:'한일 커플이 실제로 겪는<br>다섯 가지 어려움',
+    prob_desc:'이 서비스는 시장 조사보다 먼저 시작됐습니다. 창업자 본인이 한일 연애를 하면서 직접 겪은 문제들입니다.',
+    prob1_title:'번역의 피로와 흐름의 단절', prob1_desc:'매 메시지마다 파파고를 열고, 복사하고, 붙여넣기를 반복하면 대화 자체가 힘들어집니다.', prob1_quote:'"파이팅!"이 "戦い(싸움)"로 번역되던 순간, 상대방이 왜 당황하는지 몰랐습니다.',
+    prob2_title:'감정 표현의 오해', prob2_desc:'미묘한 뉘앙스, 위로의 말, 농담은 번역기로 전달되지 않습니다. 의도와 다르게 전해지는 순간들이 쌓입니다.', prob2_quote:'"오늘 힘들었어"에 "戦え!"라는 답이 돌아왔을 때의 어색함.',
+    prob3_title:'문화와 방식의 차이', prob3_desc:'일본 여성이 선호하는 대화 방식과 한국 남성의 연애 접근법 사이의 간극. 서로 다른 언어만큼 다른 문화.', prob3_quote:'빠른 친밀도를 원하는 쪽과, 신중하고 차분한 관계를 선호하는 쪽.',
+    prob4_title:'물리적 거리와 만남 조율', prob4_desc:'상대가 언제 한국에 오는지, 여행 계획이 있는지, 장기적으로 이동 가능성이 있는지 — 알기 어렵습니다.', prob4_quote:'3개월간 온라인으로만 이야기하다, 상대의 서울 여행 계획을 뒤늦게 알았습니다.',
+    prob5_title:'신뢰와 진정성의 확인', prob5_desc:'언어 장벽 때문에 허위 프로필과 진짜를 구분하기 더 어렵습니다. 국경을 넘는 관계에서 안전은 더 중요합니다.', prob5_quote:'상대가 진지한지, 동시에 여러 사람과 대화하는지 — 확인할 방법이 없었습니다.',
+    founder_title:'이 서비스는 시장 분석이 아니라,<br>실제 경험에서 시작됐습니다.',
+    founder_story1:'한국 남성으로서 일본인 파트너와 연애를 시작했을 때, 문제는 생각보다 훨씬 구체적이었습니다. 번역 앱을 열고 닫는 반복, 감정이 틀리게 전달되던 순간들, 언제 만날 수 있을지 모르는 불확실함.',
+    founder_story2:'이 불편함을 개인적으로 해결하면서 깨달았습니다. 이건 우리만의 문제가 아니라, 한일 관계를 원하는 모든 사람이 혼자 감당하고 있는 문제라는 것을.',
+    founder_story3:'그래서 직접 만들기로 했습니다. 기획도, 개발도, 검증도 — 모두 제가 합니다. 실제 한일 커플이 필요로 하는 것을 아는 사람이 만드는 서비스입니다.',
+    founder_highlight:'"나는 이 서비스의 가장 중요한 첫 번째 사용자입니다.<br>내가 필요했던 것을, 이제 모두를 위해 만들고 있습니다."',
+    sol_label:'HANA 솔루션', sol_title:'다섯 가지 문제를,<br>다섯 가지 방식으로 해결합니다.', sol_desc:'단순한 매칭 앱이 아닙니다. 한일 관계의 처음부터 지속까지 함께하는 구조입니다.',
+    sol1_title:'맥락 기반 실시간 번역', sol1_desc:'단순 텍스트 변환이 아닙니다. 감정의 톤, 대화 맥락, 문화적 뉘앙스를 이해하는 번역. "파이팅"은 "頑張って"로 자연스럽게.',
+    sol2_title:'문화·취향 기반 매칭', sol2_desc:'K-pop, 드라마, 한국 카페 문화 — 공통 화제가 될 수 있는 취향을 매칭의 핵심 기준으로 사용합니다.',
+    sol3_title:'여행자 모드 & 거리 매칭', sol3_desc:'공항 반경 5km 진입 시 자동 활성화. "이번 주 서울" 상태인 일본 여성과 서울 거주 한국 남성을 우선 연결합니다.',
+    sol4_title:'3단계 신뢰 인증', sol4_desc:'이메일 인증 → 셀카 대조 인증 → 여권·재류카드 국적 자동 추출. 진짜 사람과, 진짜로 연결됩니다.',
+    sol5_title:'72시간 타임캡슐 채팅', sol5_desc:'무제한 대화방이 오히려 피로를 만듭니다. 72시간 안에 진심으로 대화하고, 서로 동의하면 연장하는 구조입니다.', sol5_tag:'집중적 관계 형성',
+    cmp_label:'차별화', cmp_title:'기존 앱이 하지 못하는 것을,<br>HANA가 처음부터 설계했습니다.', cmp_wipi:'위피', cmp_badge:'특화',
+    cmp_row1:'실시간 맥락 번역', cmp_row1_hana:'✓ 감정 인식', cmp_basic:'△ 기본', cmp_general:'△ 일반', cmp_text:'△ 텍스트만', cmp_photo:'△ 사진만', cmp_id:'△ 본인인증', cmp_extra:'△ 부가 기능',
+    cmp_row2:'한일 문화 취향 매칭', cmp_row2_hana:'✓ K-pop · 드라마 임베딩',
+    cmp_row3:'여행 일정 · GPS 매칭', cmp_row3_hana:'✓ 공항 자동 감지',
+    cmp_row4:'국적 · 신원 인증', cmp_row4_hana:'✓ 여권 OCR + 셀카 대조',
+    cmp_row5:'한일 특화 설계', cmp_row5_hana:'✓ 전체 구조 최적화',
+    cmp_row6:'감정 분석 AI', cmp_row6_hana:'✓ BERT 한일 특화',
+    exec_label:'실행력', exec_title:'기획, 개발, 검증 —<br>모두 한 사람이 합니다.', exec_desc:'외주에 의존하는 스타트업이 아닙니다. 창업자가 직접 만들고, 직접 테스트하고, 직접 개선합니다.',
+    exec_quote:'"Founder as Developer.<br>빠르게 만들고, 빠르게 배우고,<br>빠르게 고칩니다."',
+    exec_s1_label:'플랫폼', exec_s2_label:'MVP 개발기간', exec_s2_val:'25일 목표', exec_s3_label:'번역 엔진', exec_s4_label:'인증 기술',
+    phase1_title:'MVP 검증 (1–3개월)', phase1_desc:'실시간 번역 채팅, 기본 매칭, 72시간 타임캡슐. Bubble 기반 웹앱 출시.', phase1_tag:'가입자 500명 · 매칭률 30%',
+    phase2_title:'AI 고도화 (4–6개월)', phase2_desc:'BERT 감정 분석 도입, K-pop·드라마 취향 벡터화, 셀카 인증 적용.', phase2_tag:'매칭 만족도 70%+',
+    phase3_title:'위치 기반 매칭 (7–9개월)', phase3_desc:'GPS 여행자 모드, 공항 자동 감지, Google Calendar 여행 일정 연동.', phase3_tag:'오프라인 만남 20%+',
+    phase4_title:'수익화 & 네이티브 앱 (13–18개월)', phase4_desc:'프리미엄 구독 출시, iOS/Android 네이티브 앱, 목표 월 매출 5,000만 원.', phase4_tag:'유료 전환율 15%+',
+    comm_label:'사전 커뮤니티', comm_title:'앱 출시 전부터,<br>이미 고객과 대화를 시작했습니다.', comm_desc:'서비스를 만들기 전에 먼저 사람들과 연결됩니다. 한일 연애에 관심 있는 분들과 함께, 지금 이 순간도 대화 중입니다.',
+    ch_blog:'블로그', comm1_title:'초기 관심층 선점', comm1_desc:'한일 연애 콘텐츠를 운영하며 서비스 출시 전부터 잠재 사용자와 관계를 형성하고 있습니다.',
+    comm2_title:'실사용자 피드백', comm2_desc:'실제 한일 커플, 한국어·일본어 학습자, K-팬의 목소리를 서비스에 직접 반영합니다.',
+    comm3_title:'베타 커뮤니티 형성', comm3_desc:'출시와 동시에 초기 사용자와 함께 시작할 수 있도록, 지금부터 관계를 쌓아가고 있습니다.',
+    safe_label:'안전 설계', safe_title:'안전은 부가 기능이 아닙니다.<br>서비스의 기본값입니다.',
+    safe1_title:'여권 OCR 국적 인증', safe1_desc:'여권·재류카드 스캔으로 국적을 자동 추출합니다. 한국인·일본인임을 시스템이 직접 확인합니다.',
+    safe2_title:'셀카 대조 인증', safe2_desc:'AWS Rekognition으로 프로필 사진과 실시간 셀카를 90% 이상 일치도로 대조합니다. 허위 프로필은 처음부터 차단됩니다.',
+    safe3_title:'행동 패턴 이상 감지', safe3_desc:'24시간 내 비정상적인 매칭 패턴을 자동 감지합니다. 스팸·헌팅 목적의 사용을 구조적으로 방지합니다.',
+    safe4_title:'신고 및 블랙리스트', safe4_desc:'불쾌한 경험은 즉시 신고 가능하며, 익명화된 블랙리스트 네트워크로 다른 사용자를 보호합니다.',
+    safe_principle:'"일본 여성이 한국 남성과 연결되기 위해 용기를 낸다면,<br>그 용기를 지키는 것이 우리의 책임입니다."',
+    safe_score_title:'HANA 신뢰 지수', safe_sc1:'신원 인증률', safe_sc2:'셀카 인식 정확도', safe_sc3:'번역 품질 목표', safe_sc4:'매칭 만족도 목표',
+    safe_steps_label:'인증 단계', safe_step1:'이메일 / 전화번호 인증', safe_step2:'실시간 셀카 대조 인증', safe_step3:'여권 OCR 국적 확인',
+    cta_label:'함께 시작해요', cta_title:'HANA와 함께<br>첫 번째 연결을 기다려주세요.', cta_desc:'MVP 출시 준비 중입니다. 먼저 이메일을 남겨주시면, 출시 소식과 베타 테스트 초대를 가장 먼저 전달드립니다.',
+    cta_placeholder:'이메일 주소를 입력하세요', cta_submit:'출시 알림 받기',
+    cta_opt1:'🧪 베타테스터 신청', cta_opt2:'🤝 협업·제휴 문의', cta_opt3:'📊 투자자·지원사업', cta_opt4:'🌸 일본어 페이지',
+    cta_note:'스팸 메일은 보내지 않습니다. 언제든지 수신 거부하실 수 있습니다.',
+    footer_ch:'채널', footer_info:'정보', footer_about:'서비스 소개', footer_privacy:'개인정보처리방침', footer_terms:'이용약관', footer_partner:'파트너 문의',
+    footer_built:'花 — 서로 다른 두 사람이 하나로 연결되는 순간.'
+  },
+  ja: {
+    nav_service:'サービス紹介', nav_founder:'創業者ストーリー', nav_solution:'ソリューション', nav_community:'コミュニティ', nav_cta:'リリース通知を受け取る',
+    hero_badge:'日韓マッチングプラットフォーム · リリース準備中',
+    hero_headline:'言葉が違っても、<br><em>気持ちは届きます。</em>',
+    hero_sub:'HANAは、韓国人男性と日本人女性の本物のつながりをサポートする特化型プラットフォームです。翻訳の手間、文化の違い、距離への不安——すべてを最初から考慮して設計しました。',
+    hero_jp:'언어가 달라도, 마음은 전해집니다。',
+    hero_cta1:'リリース通知を受け取る', hero_cta2:'プロジェクトを見る',
+    prob_label:'課題の定義', prob_title:'日韓カップルが実際に経験する<br>5つの困難',
+    prob_desc:'このサービスは市場調査より先に始まりました。創業者自身が日韓恋愛を通じて実際に経験した問題です。',
+    prob1_title:'翻訳の疲れと会話の途切れ', prob1_desc:'メッセージごとに翻訳アプリを開いてコピー&ペーストを繰り返すと、会話自体がつらくなります。', prob1_quote:'「파이팅！」が「戦い」と訳された瞬間、相手がなぜ困惑しているかわかりませんでした。',
+    prob2_title:'感情表現の誤解', prob2_desc:'微妙なニュアンス、励ましの言葉、冗談は翻訳機では伝わりません。意図とは違って伝わる瞬間が積み重なります。', prob2_quote:'「今日しんどかった」に「戦え！」と返ってきたときの気まずさ。',
+    prob3_title:'文化とコミュニケーションスタイルの違い', prob3_desc:'日本人女性が好む対話スタイルと韓国人男性の恋愛アプローチの間のギャップ。言語と同じくらい異なる文化。', prob3_quote:'早い距離感を求める側と、慎重で穏やかな関係を好む側。',
+    prob4_title:'物理的な距離と会う日程の調整', prob4_desc:'相手がいつ韓国に来るのか、旅行の予定があるのか、長期的に移動の可能性があるのか——知るのが難しいです。', prob4_quote:'3ヶ月間オンラインだけで話し、相手のソウル旅行の予定を後から知りました。',
+    prob5_title:'信頼と誠実さの確認', prob5_desc:'言語の壁があるため、偽のプロフィールと本物を見分けるのがより難しいです。国境を越える関係では安全がより重要です。', prob5_quote:'相手が真剣なのか、同時に複数の人と話しているのか——確認する方法がありませんでした。',
+    founder_title:'このサービスは市場分析ではなく、<br>実際の経験から始まりました。',
+    founder_story1:'韓国人男性として日本人パートナーと恋愛を始めたとき、問題は思ったよりはるかに具体的でした。翻訳アプリを開いたり閉じたりする繰り返し、感情が誤って伝わる瞬間、いつ会えるかわからない不確かさ。',
+    founder_story2:'この不便さを個人的に解決しながら気づきました。これは自分たちだけの問題ではなく、日韓の関係を望むすべての人が一人で抱えている問題だということを。',
+    founder_story3:'だから自分で作ることにしました。企画も、開発も、検証も——すべて私が行います。実際の日韓カップルが必要とするものを知っている人が作るサービスです。',
+    founder_highlight:'"私はこのサービスの最も重要な最初のユーザーです。<br>自分が必要だったものを、今すべての人のために作っています。"',
+    sol_label:'HANAのソリューション', sol_title:'5つの問題を、<br>5つの方法で解決します。', sol_desc:'単なるマッチングアプリではありません。日韓の関係の始まりから継続まで、共にある構造です。',
+    sol1_title:'文脈に基づくリアルタイム翻訳', sol1_desc:'単純なテキスト変換ではありません。感情のトーン、会話の文脈、文化的ニュアンスを理解した翻訳。「파이팅」は「頑張って」へ自然に。',
+    sol2_title:'文化・趣味に基づくマッチング', sol2_desc:'K-pop、ドラマ、韓国カフェ文化——共通の話題となりうる趣味をマッチングの核心基準として使用します。',
+    sol3_title:'トラベラーモード＆距離マッチング', sol3_desc:'空港半径5km進入時に自動起動。「今週ソウル」状態の日本人女性とソウル在住の韓国人男性を優先的につなぎます。',
+    sol4_title:'3段階信頼認証', sol4_desc:'メール認証 → 自撮り照合認証 → パスポート・在留カード国籍自動抽出。本物の人と、本物でつながります。',
+    sol5_title:'72時間タイムカプセルチャット', sol5_desc:'無制限のチャットルームがむしろ疲労を生みます。72時間以内に誠実に話し、双方が同意すれば延長できる構造です。', sol5_tag:'集中的な関係構築',
+    cmp_label:'差別化', cmp_title:'既存アプリにできないことを、<br>HANAが最初から設計しました。', cmp_wipi:'ワイピー', cmp_badge:'特化',
+    cmp_row1:'リアルタイム文脈翻訳', cmp_row1_hana:'✓ 感情認識', cmp_basic:'△ 基本', cmp_general:'△ 一般', cmp_text:'△ テキストのみ', cmp_photo:'△ 写真のみ', cmp_id:'△ 本人確認', cmp_extra:'△ 付加機能',
+    cmp_row2:'日韓文化趣味マッチング', cmp_row2_hana:'✓ K-pop・ドラマ埋め込み',
+    cmp_row3:'旅行日程・GPSマッチング', cmp_row3_hana:'✓ 空港自動検知',
+    cmp_row4:'国籍・身元認証', cmp_row4_hana:'✓ パスポートOCR＋自撮り照合',
+    cmp_row5:'日韓特化設計', cmp_row5_hana:'✓ 全体構造最適化',
+    cmp_row6:'感情分析AI', cmp_row6_hana:'✓ BERT日韓特化',
+    exec_label:'実行力', exec_title:'企画、開発、検証——<br>すべて一人で行います。', exec_desc:'外注に頼るスタートアップではありません。創業者が自ら作り、自らテストし、自ら改善します。',
+    exec_quote:'"Founder as Developer.<br>速く作り、速く学び、<br>速く直します。"',
+    exec_s1_label:'プラットフォーム', exec_s2_label:'MVP開発期間', exec_s2_val:'25日目標', exec_s3_label:'翻訳エンジン', exec_s4_label:'認証技術',
+    phase1_title:'MVP検証 (1〜3ヶ月)', phase1_desc:'リアルタイム翻訳チャット、基本マッチング、72時間タイムカプセル。Bubbleベースのウェブアプリリリース。', phase1_tag:'登録者500名・マッチング率30%',
+    phase2_title:'AI高度化 (4〜6ヶ月)', phase2_desc:'BERT感情分析導入、K-pop・ドラマ趣味ベクトル化、自撮り認証適用。', phase2_tag:'マッチング満足度70%+',
+    phase3_title:'位置ベースマッチング (7〜9ヶ月)', phase3_desc:'GPSトラベラーモード、空港自動検知、Googleカレンダー旅行日程連動。', phase3_tag:'オフライン出会い20%+',
+    phase4_title:'収益化＆ネイティブアプリ (13〜18ヶ月)', phase4_desc:'プレミアム購読リリース、iOS/Androidネイティブアプリ、月間売上目標500万円。', phase4_tag:'有料転換率15%+',
+    comm_label:'事前コミュニティ', comm_title:'アプリリリース前から、<br>すでにお客様と対話を始めています。', comm_desc:'サービスを作る前に、まず人々とつながります。日韓恋愛に関心のある方々と、今この瞬間も対話中です。',
+    ch_blog:'ブログ', comm1_title:'初期関心層の先行獲得', comm1_desc:'日韓恋愛コンテンツを運営し、サービスリリース前から潜在ユーザーとの関係を築いています。',
+    comm2_title:'実ユーザーからのフィードバック', comm2_desc:'実際の日韓カップル、韓国語・日本語学習者、K-fanの声をサービスに直接反映します。',
+    comm3_title:'ベータコミュニティの形成', comm3_desc:'リリースと同時に初期ユーザーと共にスタートできるよう、今から関係を築いています。',
+    safe_label:'安全設計', safe_title:'安全は付加機能ではありません。<br>サービスのデフォルトです。',
+    safe1_title:'パスポートOCR国籍認証', safe1_desc:'パスポート・在留カードのスキャンで国籍を自動抽出します。韓国人・日本人であることをシステムが直接確認します。',
+    safe2_title:'自撮り照合認証', safe2_desc:'AWS Rekognitionでプロフィール写真とリアルタイム自撮りを90%以上の一致度で照合します。偽プロフィールは最初から遮断されます。',
+    safe3_title:'行動パターン異常検知', safe3_desc:'24時間以内の異常なマッチングパターンを自動検知します。スパム・ナンパ目的の使用を構造的に防止します。',
+    safe4_title:'通報およびブラックリスト', safe4_desc:'不快な経験はすぐに通報可能で、匿名化されたブラックリストネットワークで他のユーザーを保護します。',
+    safe_principle:'"日本人女性が韓国人男性とつながるために勇気を出してくれるなら、<br>その勇気を守ることが私たちの責任です。"',
+    safe_score_title:'HANA信頼指数', safe_sc1:'身元認証率', safe_sc2:'自撮り認識精度', safe_sc3:'翻訳品質目標', safe_sc4:'マッチング満足度目標',
+    safe_steps_label:'認証ステップ', safe_step1:'メール / 電話番号認証', safe_step2:'リアルタイム自撮り照合認証', safe_step3:'パスポートOCR国籍確認',
+    cta_label:'一緒に始めましょう', cta_title:'HANAと共に<br>最初のつながりをお待ちしています。', cta_desc:'MVPリリース準備中です。メールをご登録いただければ、リリース情報とベータテスト招待を最初にお届けします。',
+    cta_placeholder:'メールアドレスを入力してください', cta_submit:'リリース通知を受け取る',
+    cta_opt1:'🧪 ベータテスター申請', cta_opt2:'🤝 協業・提携のお問い合わせ', cta_opt3:'📊 投資家・支援事業', cta_opt4:'🌸 韓国語ページ',
+    cta_note:'スパムメールは送りません。いつでも配信停止できます。',
+    footer_ch:'チャンネル', footer_info:'情報', footer_about:'サービス紹介', footer_privacy:'プライバシーポリシー', footer_terms:'利用規約', footer_partner:'パートナーのお問い合わせ',
+    footer_built:'花 — 異なる二人がひとつにつながる瞬間。'
+  }
+};
+
+function setLang(lang) {
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  document.getElementById('btnKo').classList.toggle('active', lang === 'ko');
+  document.getElementById('btnJa').classList.toggle('active', lang === 'ja');
+  document.documentElement.lang = lang === 'ja' ? 'ja' : 'ko';
+}
+
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
